@@ -1,0 +1,8 @@
+#ignore config files
+config.yaml
+
+#ignore venv
+venv/
+
+#ignore pycache
+__pycache__/
