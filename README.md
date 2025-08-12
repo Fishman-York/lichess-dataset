@@ -30,4 +30,9 @@ Instead of the -1,1 system that I implemented, we could instead assign white win
 
 We could also take draws as a loss for whoever was favoured, if we wanted to be harsher. This is because we're checking if having a higher rank means a win, which a draw is not.
 
+### Goal 3
+#### Thought Process
+Again, we take the difference of ranks, but this time, we compare it to resignation rate. We first filter the dataframe for victory_status to be resign. We then check who resigns, returning 1 for white and -1 for black. We can divide this by the rank difference of white_rank-black_rank.
+
+This time, I won't split the rank difference into tiers, as I want to find out if
 
