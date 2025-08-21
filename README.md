@@ -26,13 +26,14 @@ Another thing to be aware of is not all games end with someone winning, it might
 
 Since we end up with 8 data points, we can use a linear line of best fit.
 #### Reflection
-Instead of the -1,1 system that I implemented, we could instead assign white wins to 1 and black wins to -1. We can then take that value and divide it by the rank difference. This would be more accurate and would be easier to implement. Draws would be counted as 0.
+Instead of the -1,1 system that I implemented, we could instead assign white wins to 1 and black wins to -1. We can then take that value and divide it by the rank difference, then round up to 1. This would be easier to implement. Draws would be counted as 0.
 
 We could also take draws as a loss for whoever was favoured, if we wanted to be harsher. This is because we're checking if having a higher rank means a win, which a draw is not.
 
 ### Goal 3
 #### Thought Process
-Again, we take the difference of ranks, but this time, we compare it to resignation rate. We first filter the dataframe for victory_status to be resign. We then check who resigns, returning 1 for white and -1 for black. We can divide this by the rank difference of white_rank-black_rank.
+Again, we take the difference of ranks, but this time, we compare it to resignation rate. This time, I won't split the rank difference into tiers, as I want to analyse the mindset of a player who has to face a larger rank than them. I will take the difference in rank, and then see whether the weaker individual resigned or not. We can take a percentage of resigns/games made.
 
-This time, I won't split the rank difference into tiers, as I want to find out if
-
+I can also now implement the system described in Goal 2 reflections for easier sorting of wins.
+#### Reflection
+It may have been a good idea to take into account how fast the player resigned. This would show the difference in someone resigning just because they've already lost the game, compared to someone who forfeits because they feel like they'll lose. A way to implement this would be to take the start and end timestamps. Alternatively, we can check the length of the string field for moves. We would have to decide how many moves/how much time is(are) considered relevant to our data, especially because some chess games end in 4 moves, or very fast.
